@@ -1,0 +1,27 @@
+body {
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+section {
+  margin-left: 1em;
+}
+.hidden {
+  display: none;
+}
+#toValidate {
+  height: 500px;
+  width: 100%;
+  resize: vertical;
+}
+#formSubmit {
+  font-size: 1em;
+}
