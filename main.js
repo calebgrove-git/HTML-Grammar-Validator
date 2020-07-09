@@ -1,3 +1,5 @@
+'use strict';
+
 import { highlight } from '/jquery.highlight-within-textarea.js';
 
 function formSubmit(e) {
@@ -46,7 +48,8 @@ function fetchGrammar(regex) {
     })
     .then((grammarJSON) => {
       (grammarJSON.need = 'grammar'), highlightGrammarRegex(grammarJSON, regex);
-    });
+    })
+    .catch((error) => console.log(error));
 }
 function highlightRegex(responseJSON, str) {
   let regex = [];
