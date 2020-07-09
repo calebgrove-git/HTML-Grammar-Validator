@@ -1,6 +1,6 @@
 'use strict';
 
-import { highlight } from '/jquery.highlight-within-textarea.js';
+import { highlight } from './jquery.highlight-within-textarea.js';
 
 function formSubmit(e) {
   $('input#formSubmit').click('#formSubmit', function (e) {
