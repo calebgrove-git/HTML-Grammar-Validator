@@ -1,15 +1,25 @@
-body {
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
 
+html {
+  background: linear-gradient(to left, #5d4157, #a8caba);
+}
 main {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
 }
+header {
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+}
 form {
   display: flex;
   flex-direction: column;
   width: 100%;
+  background-color: blanchedalmond !important;
+}
+form > textarea {
+  background-color: blanchedalmond !important;
 }
 section {
   margin-left: 1em;
@@ -24,4 +34,28 @@ section {
 }
 #formSubmit {
   font-size: 1em;
+}
+#corrections {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+.error > ul,
+.errors > ul {
+  font-family: 'Roboto', sans-serif;
+  border: 2px solid black;
+  list-style: none;
+  background-color: blanchedalmond;
+  padding: 10px;
+}
+.red {
+  background-color: rgb(255, 64, 64);
+}
+.yellow {
+  background-color: rgb(225, 242, 92);
+}
+.blue {
+  background-color: #a3daff;
+}
+.green {
+  background-color: rgb(96, 245, 91);
 }

@@ -42,8 +42,23 @@
   background: none transparent !important;
 }
 
-.hwt-content mark {
+.hwt-content mark.red {
   padding: 0 !important;
   color: inherit;
   background-color: rgb(255, 64, 64);
+}
+.hwt-content mark.yellow {
+  padding: 0 !important;
+  color: inherit;
+  background-color: rgb(225, 242, 92);
+}
+.hwt-content mark.blue {
+  padding: 0 !important;
+  color: inherit;
+  background-color: #a3daff;
+}
+.hwt-content mark.green {
+  padding: 0 !important;
+  color: inherit;
+  background-color: rgb(96, 245, 91);
 }

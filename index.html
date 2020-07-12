@@ -4,18 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Validator</title>
-    <link rel="stylesheet" href="./jquery.highlight-within-textarea.css" />
     <link rel="stylesheet" href="./main.css" />
+    <link rel="stylesheet" href="./jquery.highlight-within-textarea.css" />
   </head>
   <body>
     <header>
       <h1>
-        Validator
+        HTML and Grammar Validator
       </h1>
+      <p>
+        Just paste in the HTML that you want to check for errors and hit submit.
+        <br />
+        HTML errors will be highlighted in <span class="red">red.</span>
+        <br />
+        HTML warnings will be highlighted in <span class="yellow">yellow.</span>
+        <br />
+        Grammar errors will be highlighted in <span class="blue">blue.</span>
+        <br />
+        Spelling errors will be highlighted in <span class="green">green.</span>
+      </p>
+      <p></p>
     </header>
     <main>
       <form>
-        <label for="toValidate">Paste HTML Here</label>
         <textarea
           id="toValidate"
           name="toValidate"

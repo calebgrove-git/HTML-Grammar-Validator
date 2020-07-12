@@ -54,53 +54,79 @@ function fetchGrammar(regex) {
 function highlightRegex(responseJSON, str) {
   let regex = [];
   responseJSON.messages.forEach((element) => {
-    regex.push(str[element.lastLine - 1]);
+    let obj = {};
+    if (element.type === 'error') {
+      obj.highlight = str[element.lastLine - 1];
+      obj.className = 'red';
+    }
+    if (element.type === 'info') {
+      obj.highlight = str[element.lastLine - 1];
+      obj.className = 'yellow';
+    }
+    regex.push(obj);
   });
   fetchGrammar(regex);
   displayResultsHTML(regex, responseJSON);
 }
 function highlightGrammarRegex(grammarJSON, regex) {
+  console.log(grammarJSON);
   grammarJSON.errors.forEach((error) => {
-    regex.push(error.bad);
+    let obj = {};
+    if (error.type === 'spelling') {
+      obj.highlight = error.bad;
+      obj.className = 'green';
+    }
+    if (error.type === 'grammar') {
+      obj.highlight = error.bad;
+      obj.className = 'blue';
+    }
+    regex.push(obj);
   });
+  console.log(regex);
   highlight(regex);
   displayResultsHTML(regex, grammarJSON);
 }
-function resultsHTML(str, type, disc) {
+function resultsHTML(name, str, type, disc) {
   return (
     `<div class="error"><ul><li>` +
     str +
-    `</li><li>` +
+    `</li><hr><li class="` +
+    name +
+    `">` +
     type +
-    `</li><li>` +
+    `</li><hr><li>` +
     disc +
     `</li></ul></div>`
   );
 }
-function resultsGrammar(str, type, disc) {
+function resultsGrammar(name, str, type, disc) {
   return (
     `<div class="errors"><ul><li>` +
     str +
-    `</li><li>` +
+    `</li><hr><li class="` +
+    name +
+    `">` +
     type +
-    `</li><li>` +
+    `</li><hr><li> suggestion: ` +
     disc +
     `</li></ul></div>`
   );
 }
 function displayResultsHTML(regex, responseJSON) {
   let i = 0;
+  console.log(responseJSON);
   if (responseJSON.need === 'html') {
     $('div.error').remove();
     responseJSON.messages.forEach((response) => {
-      let printRegex = regex[i].replace(/[<>]/gm, '');
+      let printRegex = regex[i].highlight.replace(/[<>]/gm, '');
       if (response.type == 'error') {
         $('#corrections').after(
-          resultsHTML(printRegex, response.type, response.message)
+          resultsHTML('red', printRegex, response.type, response.message)
         );
+        console.log(printRegex);
       } else
         $('#corrections').after(
-          resultsHTML(printRegex, response.subType, response.message)
+          resultsHTML('yellow', printRegex, response.subType, response.message)
         );
       i++;
     });
@@ -108,9 +134,14 @@ function displayResultsHTML(regex, responseJSON) {
   if (responseJSON.need === 'grammar') {
     $('div.errors').remove();
     responseJSON.errors.forEach((error) => {
-      $('#corrections').after(
-        resultsGrammar(error.bad, error.type, error.better)
-      );
+      if (error.type === 'grammar') {
+        $('#corrections').after(
+          resultsGrammar('blue', error.bad, error.type, error.better)
+        );
+      } else
+        $('#corrections').after(
+          resultsGrammar('green', error.bad, error.type, error.better)
+        );
     });
   }
 }
