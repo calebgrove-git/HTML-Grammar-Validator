@@ -1,6 +1,6 @@
 # PEER
 
-## [Live App](https://calebgrove-git.github.io/HTML-Grammar-Validator/)
+## [Live App](https://calebgrove-git.github.io/PEER/)
 
 An easy to use, all in one, grammar and HTML validator.
 
