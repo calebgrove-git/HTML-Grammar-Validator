@@ -1,7 +1,7 @@
 'use strict';
-
+//import for textarea highlighting
 import { highlight } from './jquery.highlight-within-textarea.js';
-
+//handles submit button on form
 function formSubmit(e) {
   $('input#formSubmit').click('#formSubmit', function (e) {
     e.preventDefault();
@@ -9,6 +9,7 @@ function formSubmit(e) {
     fetchValid();
   });
 }
+//sends a post request to HTML API
 function fetchValid() {
   let html = $('form textarea').val();
   let str = '' + html + '';
@@ -29,6 +30,7 @@ function fetchValid() {
     })
     .catch((error) => console.log(error));
 }
+//sends a get request to grammar API
 function fetchGrammar(regex) {
   let html = $('form textarea').val();
   $('#hiddenFile').append(html);
@@ -51,6 +53,7 @@ function fetchGrammar(regex) {
     })
     .catch((error) => console.log(error));
 }
+//handles highlighting regex for HTML response
 function highlightRegex(responseJSON, str) {
   let regex = [];
   responseJSON.messages.forEach((element) => {
@@ -68,6 +71,7 @@ function highlightRegex(responseJSON, str) {
   fetchGrammar(regex);
   displayResultsHTML(regex, responseJSON);
 }
+//handles highlighting regex for grammar response
 function highlightGrammarRegex(grammarJSON, regex) {
   console.log(grammarJSON);
   grammarJSON.errors.forEach((error) => {
@@ -86,6 +90,7 @@ function highlightGrammarRegex(grammarJSON, regex) {
   highlight(regex);
   displayResultsHTML(regex, grammarJSON);
 }
+//creates HTML for HTML response
 function resultsHTML(name, str, type, disc) {
   return (
     `<div class="error"><ul><li>` +
@@ -99,6 +104,7 @@ function resultsHTML(name, str, type, disc) {
     `</li></ul></div>`
   );
 }
+//creates HTML for grammar response
 function resultsGrammar(name, str, type, disc) {
   return (
     `<div class="errors"><ul><li>` +
@@ -112,6 +118,7 @@ function resultsGrammar(name, str, type, disc) {
     `</li></ul></div>`
   );
 }
+//passes relevant info from responses to HTML creator functions above
 function displayResultsHTML(regex, responseJSON) {
   let i = 0;
   console.log(responseJSON);
@@ -147,6 +154,7 @@ function displayResultsHTML(regex, responseJSON) {
   $('form:first-child').addClass('blur');
   $('form textarea').removeClass('blur');
 }
+//document ready
 function handleForm() {
   formSubmit();
 }
