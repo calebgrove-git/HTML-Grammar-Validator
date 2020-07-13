@@ -28,7 +28,7 @@ function fetchValid() {
       responseJSON.need = 'html';
       highlightRegex(responseJSON, str);
     })
-    .catch((error) => console.log(error));
+    .catch((error) => alert(error));
 }
 //sends a get request to grammar API
 function fetchGrammar(regex) {
@@ -51,7 +51,7 @@ function fetchGrammar(regex) {
     .then((grammarJSON) => {
       (grammarJSON.need = 'grammar'), highlightGrammarRegex(grammarJSON, regex);
     })
-    .catch((error) => console.log(error));
+    .catch((error) => alert(error));
 }
 //handles highlighting regex for HTML response
 function highlightRegex(responseJSON, str) {
@@ -73,7 +73,6 @@ function highlightRegex(responseJSON, str) {
 }
 //handles highlighting regex for grammar response
 function highlightGrammarRegex(grammarJSON, regex) {
-  console.log(grammarJSON);
   grammarJSON.errors.forEach((error) => {
     let obj = {};
     if (error.type === 'spelling') {
@@ -86,7 +85,6 @@ function highlightGrammarRegex(grammarJSON, regex) {
     }
     regex.push(obj);
   });
-  console.log(regex);
   highlight(regex);
   displayResultsHTML(regex, grammarJSON);
 }
@@ -121,7 +119,6 @@ function resultsGrammar(name, str, type, disc) {
 //passes relevant info from responses to HTML creator functions above
 function displayResultsHTML(regex, responseJSON) {
   let i = 0;
-  console.log(responseJSON);
   if (responseJSON.need === 'html') {
     $('div.error').remove();
     responseJSON.messages.forEach((response) => {
@@ -130,7 +127,6 @@ function displayResultsHTML(regex, responseJSON) {
         $('#corrections').after(
           resultsHTML('red', printRegex, response.type, response.message)
         );
-        console.log(printRegex);
       } else
         $('#corrections').after(
           resultsHTML('purple', printRegex, response.subType, response.message)
