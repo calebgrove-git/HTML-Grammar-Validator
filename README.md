@@ -2,7 +2,7 @@
 
 ## [Live App](https://calebgrove-git.github.io/HTML-Grammar-Validator/)
 
-An easy to use, all in one, grammar and HTML validator
+An easy to use, all in one, grammar and HTML validator.
 
 ## Motivation
 
