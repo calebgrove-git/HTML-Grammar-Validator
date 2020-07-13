@@ -1,8 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
 
 html {
-  background: linear-gradient(to left, #5d4157, #a8caba);
+  background-image: url('./images/background.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
+
 main {
   display: flex;
   flex-direction: column;
@@ -10,19 +16,43 @@ main {
 }
 header {
   font-family: 'Roboto', sans-serif;
+}
+header > h2 {
+  font-family: 'Monoton', 'Roboto', sans-serif;
+  font-size: 2em;
+  margin-top: 0px;
+  font-weight: 50;
+  word-spacing: 20px;
+}
+header > p {
   text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+}
+header > h1 {
+  font-weight: 100;
+  font-size: 4em;
+  font-family: 'Monoton', 'Roboto', sans-serif;
+  margin-bottom: 0px;
 }
 form {
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: blanchedalmond !important;
 }
-form > textarea {
-  background-color: blanchedalmond !important;
+.blur {
+  display: border-box;
+  background-color: inherit !important;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
 }
+
 section {
-  margin-left: 1em;
+  width: 100%;
+}
+div {
+  width: 100%;
 }
 .hidden {
   display: none;
@@ -35,10 +65,13 @@ section {
 #formSubmit {
   font-size: 1em;
 }
-#corrections {
+#corrections > h2 {
+  font-weight: 100;
+  font-size: 2em;
   text-align: center;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Monoton', 'Roboto', sans-serif;
 }
+
 .error > ul,
 .errors > ul {
   font-family: 'Roboto', sans-serif;
@@ -50,8 +83,8 @@ section {
 .red {
   background-color: rgb(255, 64, 64);
 }
-.yellow {
-  background-color: rgb(225, 242, 92);
+.purple {
+  background-color: rgb(167, 92, 247);
 }
 .blue {
   background-color: #a3daff;

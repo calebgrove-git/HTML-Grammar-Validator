@@ -61,7 +61,7 @@ function highlightRegex(responseJSON, str) {
     }
     if (element.type === 'info') {
       obj.highlight = str[element.lastLine - 1];
-      obj.className = 'yellow';
+      obj.className = 'purple';
     }
     regex.push(obj);
   });
@@ -126,7 +126,7 @@ function displayResultsHTML(regex, responseJSON) {
         console.log(printRegex);
       } else
         $('#corrections').after(
-          resultsHTML('yellow', printRegex, response.subType, response.message)
+          resultsHTML('purple', printRegex, response.subType, response.message)
         );
       i++;
     });
@@ -144,6 +144,8 @@ function displayResultsHTML(regex, responseJSON) {
         );
     });
   }
+  $('form:first-child').addClass('blur');
+  $('form textarea').removeClass('blur');
 }
 function handleForm() {
   formSubmit();

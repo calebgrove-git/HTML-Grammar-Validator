@@ -47,10 +47,10 @@
   color: inherit;
   background-color: rgb(255, 64, 64);
 }
-.hwt-content mark.yellow {
+.hwt-content mark.purple {
   padding: 0 !important;
   color: inherit;
-  background-color: rgb(225, 242, 92);
+  background-color: rgb(167, 92, 247);
 }
 .hwt-content mark.blue {
   padding: 0 !important;
