@@ -2,15 +2,20 @@
 //import for textarea highlighting
 import { highlight } from './jquery.highlight-within-textarea.js';
 //handles submit button on form
-function formSubmit(e) {
+function formSubmit() {
   $('input#formSubmit').click('#formSubmit', function (e) {
-    if ($('form')[0].checkValidity() === false) {
-      $('<input type="submit">').hide().appendTo($('form')).click().remove();
-    }
-    if ($('form')[0].checkValidity() === true) {
-      e.preventDefault();
+    e.preventDefault();
+    console.log($('textarea')[0].checkValidity());
+    if ($('textarea')[0].checkValidity()) {
       $('#corrections').removeClass('hidden');
       fetchValid();
+    }
+    if (!$('textarea')[0].checkValidity()) {
+      $('<input type="submit">')
+        .hide()
+        .appendTo($('textarea'))
+        .click()
+        .remove();
     }
   });
 }
