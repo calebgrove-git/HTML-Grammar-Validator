@@ -5,7 +5,6 @@ import { highlight } from './jquery.highlight-within-textarea.js';
 function formSubmit() {
   $('input#formSubmit').click('#formSubmit', function (e) {
     e.preventDefault();
-    console.log($('textarea')[0].checkValidity());
     if ($('textarea')[0].checkValidity()) {
       $('#corrections').removeClass('hidden');
       fetchValid();
