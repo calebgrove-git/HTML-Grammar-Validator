@@ -4,9 +4,14 @@ import { highlight } from './jquery.highlight-within-textarea.js';
 //handles submit button on form
 function formSubmit(e) {
   $('input#formSubmit').click('#formSubmit', function (e) {
-    e.preventDefault();
-    $('#corrections').removeClass('hidden');
-    fetchValid();
+    if ($('form')[0].checkValidity() === false) {
+      $('<input type="submit">').hide().appendTo($('form')).click().remove();
+    }
+    if ($('form')[0].checkValidity() === true) {
+      e.preventDefault();
+      $('#corrections').removeClass('hidden');
+      fetchValid();
+    }
   });
 }
 //sends a post request to HTML API
@@ -150,8 +155,8 @@ function displayResultsHTML(regex, responseJSON) {
   $('form:first-child').addClass('blur');
   $('form textarea').removeClass('blur');
 }
-//document ready
 function handleForm() {
   formSubmit();
 }
+//document ready
 $(handleForm);
