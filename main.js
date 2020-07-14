@@ -3,19 +3,10 @@
 import { highlight } from './jquery.highlight-within-textarea.js';
 //handles submit button on form
 function formSubmit() {
-  $('input#formSubmit').click('#formSubmit', function (e) {
+  $('form').on('submit', function (e) {
     e.preventDefault();
-    if ($('textarea')[0].checkValidity()) {
-      $('#corrections').removeClass('hidden');
-      fetchValid();
-    }
-    if (!$('textarea')[0].checkValidity()) {
-      $('<input type="submit">')
-        .hide()
-        .appendTo($('textarea'))
-        .click()
-        .remove();
-    }
+    $('#corrections').removeClass('hidden');
+    fetchValid();
   });
 }
 //sends a post request to HTML API
