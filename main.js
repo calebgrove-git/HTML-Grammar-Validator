@@ -3,7 +3,7 @@
 import { highlight } from './jquery.highlight-within-textarea.js';
 //handles submit button on form
 function formSubmit() {
-  $('form').on('submit', function (e) {
+  $('form').submit(function (e) {
     e.preventDefault();
     $('#corrections').removeClass('hidden');
     fetchValid();
