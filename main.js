@@ -23,12 +23,13 @@ function fetchValid() {
       if (response.ok) {
         return response.json();
       }
+      throw new Error(response.statusText);
     })
     .then((responseJSON) => {
       responseJSON.need = 'html';
       highlightRegex(responseJSON, str);
     })
-    .catch((error) => alert(error));
+    .catch((error) => $('form textarea').val(`${error}`));
 }
 //sends a get request to grammar API
 function fetchGrammar(regex) {
@@ -41,17 +42,18 @@ function fetchGrammar(regex) {
   fetch(
     'https://api.textgears.com/check.php?text=' +
       html +
-      '!&key=639YgypA8aXmSodU'
+      '!&key=639YgypA8aXmSodU' // dotenv
   )
     .then((response) => {
       if (response.ok) {
         return response.json();
       }
+      throw new Error(response.statusText);
     })
     .then((grammarJSON) => {
       (grammarJSON.need = 'grammar'), highlightGrammarRegex(grammarJSON, regex);
     })
-    .catch((error) => alert(error));
+    .catch((error) => $('form textarea').val(`${error}`));
 }
 //handles highlighting regex for HTML response
 function highlightRegex(responseJSON, str) {
@@ -124,11 +126,11 @@ function displayResultsHTML(regex, responseJSON) {
     responseJSON.messages.forEach((response) => {
       let printRegex = regex[i].highlight.replace(/[<>]/gm, '');
       if (response.type == 'error') {
-        $('#corrections').after(
+        $('#corrections').append(
           resultsHTML('red', printRegex, response.type, response.message)
         );
       } else
-        $('#corrections').after(
+        $('#corrections').append(
           resultsHTML('purple', printRegex, response.subType, response.message)
         );
       i++;
@@ -138,11 +140,11 @@ function displayResultsHTML(regex, responseJSON) {
     $('div.errors').remove();
     responseJSON.errors.forEach((error) => {
       if (error.type === 'grammar') {
-        $('#corrections').after(
+        $('#corrections').append(
           resultsGrammar('blue', error.bad, error.type, error.better)
         );
       } else
-        $('#corrections').after(
+        $('#corrections').append(
           resultsGrammar('green', error.bad, error.type, error.better)
         );
     });

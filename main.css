@@ -2,18 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
 
 html {
-  background-image: url('./images/background.jpg');
+  /*  background-image: url('./images/background.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: fixed;*/
+  background-color: #292d3e;
+  color: #d0d0d0;
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-}
 header {
   font-family: 'Roboto', sans-serif;
 }
@@ -40,7 +37,14 @@ form {
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: blanchedalmond;
+  background-color: #434758;
+}
+form > label {
+  text-align: center;
+  background-color: #292d3e;
+  font-size: 1.5em;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
 }
 section {
   width: 100%;
@@ -48,17 +52,16 @@ section {
 div {
   width: 100%;
 }
-.hidden {
-  display: none;
-}
 #toValidate {
   height: 500px;
   width: 100%;
   resize: vertical;
+  background-color: #434758;
+  color: #d0d0d0;
 }
 #formSubmit {
   font-size: 1em;
-  background-color: #a3daff;
+  background-color: #ffcb6b;
 }
 #corrections > h2 {
   margin-top: 40px;
@@ -72,23 +75,42 @@ div {
   font-family: 'Roboto', sans-serif;
   border: 2px solid black;
   list-style: none;
-  background-color: blanchedalmond;
+  background-color: #434758;
   padding: 10px;
 }
 .red {
-  background-color: rgb(255, 64, 64);
+  background-color: #9c2828;
 }
 .purple {
-  background-color: rgb(167, 92, 247);
+  background-color: #a3249b;
 }
 .blue {
-  background-color: #a3daff;
+  background-color: #2463a3;
 }
 .green {
-  background-color: rgb(96, 245, 91);
+  background-color: #3a913d;
 }
 @media only screen and (min-width: 1000px) {
   main {
-    margin: 30px;
+    margin: 20px;
   }
+  form {
+    min-width: 45vw;
+    height: 500px;
+  }
+  #container {
+    display: flex;
+  }
+  #corrections {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    height: 500px;
+    width: 45vw;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+}
+.hidden {
+  display: none !important;
 }

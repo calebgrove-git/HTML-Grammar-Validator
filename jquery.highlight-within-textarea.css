@@ -45,20 +45,20 @@
 .hwt-content mark.red {
   padding: 0 !important;
   color: inherit;
-  background-color: rgb(255, 64, 64);
+  background-color: #9c2828;
 }
 .hwt-content mark.purple {
   padding: 0 !important;
   color: inherit;
-  background-color: rgb(167, 92, 247);
+  background-color: #a3249b;
 }
 .hwt-content mark.blue {
   padding: 0 !important;
   color: inherit;
-  background-color: #a3daff;
+  background-color: #2463a3;
 }
 .hwt-content mark.green {
   padding: 0 !important;
   color: inherit;
-  background-color: rgb(96, 245, 91);
+  background-color: #3a913d;
 }

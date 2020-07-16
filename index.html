@@ -28,20 +28,23 @@
       </p>
     </header>
     <main>
-      <form>
-        <textarea
-          class="blur"
-          id="toValidate"
-          name="toValidate"
-          spellcheck="false"
-          required
-        ></textarea>
-        <input id="formSubmit" type="submit" value="Submit" />
-      </form>
-      <section id="corrections" class="hidden">
-        <h2>Corrections Needed</h2>
-      </section>
-      <section id="hiddenFile" class="hidden"></section>
+      <div id="container">
+        <form>
+          <label for="toValidate">Paste HTML Here </label>
+          <textarea
+            class="blur"
+            id="toValidate"
+            name="toValidate"
+            spellcheck="false"
+            required
+          ></textarea>
+          <input id="formSubmit" type="submit" value="Submit" />
+        </form>
+        <section id="corrections" class="hidden">
+          <h2>Corrections Needed</h2>
+        </section>
+        <section id="hiddenFile" class="hidden"></section>
+      </div>
     </main>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script type="module" src="./jquery.highlight-within-textarea.js"></script>
