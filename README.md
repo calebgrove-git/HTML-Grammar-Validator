@@ -14,8 +14,8 @@ Users can paste their code directly into the text area and hit submit. The code 
 
 ## Screenshots
 
-![PEER screenshot](./images/peer1.png)
-![PEER screenshot](./images/peer2.png)
+![PEER screenshot](./images/peer.png)
+![PEER screenshot](./images/peers.png)
 
 ## Technologies
 
