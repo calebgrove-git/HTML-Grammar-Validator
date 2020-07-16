@@ -51,6 +51,7 @@ section {
 }
 div {
   width: 100%;
+  overflow-x: hidden;
 }
 #toValidate {
   height: 500px;
